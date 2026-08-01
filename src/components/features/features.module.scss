@@ -1,0 +1,12 @@
+@use "../../style/global";
+@use "../../style/variables"as *;
+
+
+#features{
+    #feature{
+        border: 1px solid $primary_color;
+        padding: 20px;
+        padding-block: 3%;
+        height: 30vh; 
+    }
+}

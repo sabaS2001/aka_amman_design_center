@@ -1,0 +1,19 @@
+@use "../../style/global";
+@use "../../style/variables";
+
+#navBar {
+    padding: 35px 20px;
+
+    #navLink {
+        font-family: "Inter_SemiBold";
+        font-size: 15px;
+    }
+
+}
+
+#bookConsultation {
+    letter-spacing: 1px;
+    font-family: "Inter_SemiBold";
+    font-size: 15px;
+    padding: 12px 30px;
+}

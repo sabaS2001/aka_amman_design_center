@@ -1,0 +1,54 @@
+@use "../../style/global";
+@use "../../style/variables"as *;
+
+#hero {
+    background-image: url('/assets/images/header/header_four.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+    #heroContent {
+        color: $white;
+        
+
+        #small {
+            font-family: 'Inter_SemiBold';
+            font-size: 15px;
+            line-height: 1.5rem;
+            letter-spacing: 2.7px;
+        }
+
+        #content {
+            font-family: 'Inter_Regular';
+            font-size: 18px;
+            line-height: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        #exploreBtn {
+            font-family: "Inter_Regular";
+            font-size: 15px;
+            line-height: 1.5rem;
+            letter-spacing: 0.7px;
+            padding: 10px 35px;
+
+            &:active, 
+            &:hover{
+                background-color: $white;
+                color: $primary_color;
+                border: 1px solid $primary_color;
+            }
+        }
+
+        #showroomBtn {
+            font-family: "Inter_Regular";
+            font-size: 15px;
+            line-height: 1.5rem;
+            letter-spacing: 0.7px;
+            padding: 10px 35px;
+        }
+    }
+
+
+
+}

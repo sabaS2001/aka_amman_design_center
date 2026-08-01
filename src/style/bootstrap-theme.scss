@@ -1,0 +1,116 @@
+@use "./global";
+
+// Brand palette
+$ink: #0b0a08;
+$panel: #14110d;
+$panel-soft: #1a1512;
+$line: #2a241d;
+$gold: #cda86a;
+$gold-dark: #b3925a;
+$muted: #a39d92;
+$cream: #f3efe7;
+
+// Bootstrap theme overrides (must be set before importing bootstrap)
+$body-bg: $ink;
+$body-color: $cream;
+$body-secondary-bg: $panel;
+$body-secondary-color: $muted;
+$body-tertiary-bg: $panel-soft;
+$primary: $gold;
+$secondary: $muted;
+$dark: $panel;
+$border-color: $line;
+$card-bg: $panel;
+$link-color: $gold;
+$link-hover-color: $gold-dark;
+$link-decoration: none;
+$border-radius: 0.25rem;
+$border-radius-sm: 0.15rem;
+$border-radius-lg: 0.4rem;
+$font-family-base: "Inter_Regular", system-ui, sans-serif;
+$headings-font-weight: 500;
+$enable-shadows: false;
+$input-bg: transparent;
+$input-color: $cream;
+$input-border-color: $line;
+$input-focus-border-color: $gold;
+$input-focus-box-shadow: none;
+
+@import "bootstrap/scss/bootstrap";
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Small helpers Bootstrap doesn't ship with, used throughout the site
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+.tracking-widest {
+  letter-spacing: 0.15em;
+}
+
+.text-gold-dark {
+  color: $gold-dark !important;
+}
+
+.btn-outline-cream {
+  border: 1px solid rgba($cream, 0.4);
+  color: $cream;
+  background: transparent;
+
+  &:hover {
+    border-color: $cream;
+    color: $cream;
+    background: rgba($cream, 0.05);
+  }
+}
+
+.link-hover-gold {
+  color: $muted;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $cream;
+  }
+}
+
+.navbar-blur {
+  background-color: rgba($ink, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid $line;
+  color: $muted;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    color: $gold;
+    border-color: $gold;
+  }
+}
