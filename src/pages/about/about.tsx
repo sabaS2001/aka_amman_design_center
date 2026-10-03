@@ -1,3 +1,4 @@
+import { USALProvider } from "@usal/react";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 
@@ -41,27 +42,29 @@ const values = [
 
 function About() {
   return (
+    <USALProvider>
     <div className="d-flex flex-column min-vh-100 bg-body">
       <Navbar active="About" />
       <main className="flex-grow-1">
-      <section className="position-relative overflow-hidden">
+      <section className="position-relative overflow-hidden" style={{ minHeight: "24rem" }}>
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
-            background:
-              "linear-gradient(115deg,#1c2430 0%,#33302a 35%,#5c4a2c 60%,#151512 100%)",
+            backgroundImage: "url('/assets/images/header/header_one.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
             background:
-              "linear-gradient(90deg, rgba(11,10,8,0.9) 0%, rgba(11,10,8,0.35) 60%, rgba(11,10,8,0.7) 100%)",
+              "linear-gradient(90deg, rgba(11,10,8,0.9) 0%, rgba(11,10,8,0.45) 60%, rgba(11,10,8,0.75) 100%)",
           }}
         />
 
-        <div className="container position-relative py-5">
-          <h1 className="display-4 fw-medium text-white lh-sm" style={{ maxWidth: "40rem" }}>
+        <div className="container position-relative d-flex flex-column justify-content-center h-100 py-5">
+          <h1 data-usal="fade-r" className="display-4 fw-medium text-white lh-sm" style={{ maxWidth: "40rem" }}>
             Refining the Architectural Landscape.
           </h1>
         </div>
@@ -70,26 +73,24 @@ function About() {
       <section className="border-bottom bg-body">
         <div className="container row align-items-center g-5 py-5 mx-auto my-auto">
           <div className="col-lg-6">
-            <p className="eyebrow text-primary mb-3">Who We Are</p>
-            <h2 className="fs-2 fw-medium text-white lh-sm">
+            <p data-usal="fade-r" className="eyebrow text-primary mb-3">Who We Are</p>
+            <h2 data-usal="fade-r delay-100" className="fs-2 fw-medium text-white lh-sm">
               A curated hub for premium interior surfaces, cladding, and
               worktops tailored for architects and designers.
             </h2>
-            <p className="mt-3 text-body-secondary" style={{ maxWidth: "30rem" }}>
+            <p data-usal="fade-r delay-200" className="mt-3 text-body-secondary" style={{ maxWidth: "30rem" }}>
               AKA Design Center serves as a bridge between visionary concepts
               and material reality. We specialize in sourcing and specifying
               the finest architectural surfaces that define modern
               environments.
             </p>
           </div>
-          <div className="col-lg-6">
-            <div
+          <div className="col-lg-6" data-usal="fade-l delay-150">
+            <img
+              src="/assets/images/header/header_three.jpg"
+              alt="AKA Design Center showroom interior"
               className="rounded w-100"
-              style={{
-                aspectRatio: "4 / 3",
-                background:
-                  "linear-gradient(160deg,#8a6641 0%,#6b4c2e 40%,#3a2b1c 70%,#1c140d 100%)",
-              }}
+              style={{ aspectRatio: "4 / 3", objectFit: "cover" }}
             />
           </div>
         </div>
@@ -97,8 +98,8 @@ function About() {
 
       <section className="bg-body">
         <div className="container row g-4 py-5 mx-auto my-auto">
-          {values.map((value) => (
-            <div key={value.title} className="col-sm-4">
+          {values.map((value, index) => (
+            <div key={value.title} className="col-sm-4" data-usal="slide-up" data-usal-delay={index * 150}>
               <div className="border rounded p-4 h-100">
                 <svg
                   viewBox="0 0 24 24"
@@ -124,6 +125,7 @@ function About() {
 
       <Footer />
     </div>
+    </USALProvider>
   );
 }
 

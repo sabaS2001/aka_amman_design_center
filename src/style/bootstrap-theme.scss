@@ -27,7 +27,8 @@ $link-decoration: none;
 $border-radius: 0.25rem;
 $border-radius-sm: 0.15rem;
 $border-radius-lg: 0.4rem;
-$font-family-base: "Inter_Regular", system-ui, sans-serif;
+$font-family-base: "Manrope_Regular", system-ui, sans-serif;
+$font-size-base: 1.125rem;
 $headings-font-weight: 500;
 $enable-shadows: false;
 $input-bg: transparent;
@@ -40,10 +41,12 @@ $input-focus-box-shadow: none;
 
 html {
   color-scheme: dark;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -81,6 +84,55 @@ body {
   }
 }
 
+// Hover micro-interaction for every real CTA button: a soft gold outline
+// ring plus a faded house-mark (cropped from the logo, icon only) that
+// grows in behind the label. Excludes compact utility buttons (slot
+// pickers, the mobile menu toggle) where the effect would feel cluttered.
+.btn:not(.btn-sm):not(.p-0) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3.5rem;
+    height: 3.76rem;
+    background-image: url("/assets/images/logo/logoWhite.webp");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 9.76rem 3.76rem;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba($gold, 0.2);
+    transform: translateY(-1px);
+
+    &::after {
+      opacity: 0.16;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
 .link-hover-gold {
   color: $muted;
   text-decoration: none;
@@ -92,8 +144,17 @@ body {
 }
 
 .navbar-blur {
+  position: relative;
   background-color: rgba($ink, 0.95);
   backdrop-filter: blur(8px);
+  z-index: 1040;
+}
+
+// Bootstrap's invalid-field border color is lost in this project's cascade
+// (custom $input-border-color appears to win the tie); force it explicitly.
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+  border-color: #dc3545 !important;
 }
 
 .social-icon {

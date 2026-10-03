@@ -1,12 +1,38 @@
 @use "../../style/global";
-@use "../../style/variables"as *;
+@use "../../style/variables" as *;
 
+#features {
+    .featureInner {
+        position: relative;
+        height: 100%;
+        padding: 2.5rem 2.25rem;
+        border-top: 1px solid rgba($warm_beige, 0.2);
+        border-left: 1px solid rgba($warm_beige, 0.2);
+    }
 
-#features{
-    #feature{
-        border: 1px solid $primary_color;
-        padding: 20px;
-        padding-block: 3%;
-        height: 30vh; 
+    .index {
+        display: block;
+        font-family: "Manrope_Light";
+        font-size: 2.75rem;
+        line-height: 1;
+        color: rgba($primary_color, 0.35);
+        margin-bottom: 1.25rem;
+    }
+
+    .featureHead {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .col-md-4:first-child .featureInner {
+        border-left: 0;
+    }
+
+    @media (max-width: 767px) {
+        .featureInner {
+            border-left: 0;
+        }
     }
 }

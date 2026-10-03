@@ -70,6 +70,10 @@
   font-family: "Inter_ThinItalic";
   src: url("../assets/fonts/Inter_ThinItalic.ttf");
 }
+#brand img {
+  width: 155px;
+}
+
 #navBar {
   padding: 35px 20px;
 }
@@ -83,4 +87,22 @@
   font-family: "Inter_SemiBold";
   font-size: 15px;
   padding: 12px 30px;
+}
+
+#menuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+#mobileMenu {
+  padding: 0.5rem 1.5rem 1.5rem;
+  background-color: #16130F;
+  max-height: calc(100svh - 4.5rem);
+  overflow-y: auto;
+}
+#mobileMenu a {
+  font-family: "Inter_SemiBold";
 }/*# sourceMappingURL=navbar.module.css.map */

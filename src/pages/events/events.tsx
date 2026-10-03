@@ -1,8 +1,10 @@
+import { USALProvider } from "@usal/react";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 
 function Events() {
   return (
+    <USALProvider>
     <div className="d-flex flex-column min-vh-100 bg-body">
       <Navbar active="Events" />
       <main className="flex-grow-1">
@@ -10,8 +12,9 @@ function Events() {
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
-            background:
-              "linear-gradient(155deg,#1b1712 0%,#332617 35%,#4a3620 60%,#171310 100%)",
+            backgroundImage: "url('/assets/images/header/header_five.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
         <div
@@ -30,8 +33,8 @@ function Events() {
         />
 
         <div className="container position-relative py-5">
-          <p className="eyebrow text-primary mb-3">AKA Design Center</p>
-          <h1 className="display-4 fw-medium text-white lh-sm" style={{ maxWidth: "48rem" }}>
+          <p data-usal="fade-r" className="eyebrow text-primary mb-3">AKA Design Center</p>
+          <h1 data-usal="fade-r delay-100" className="display-4 fw-medium text-white lh-sm" style={{ maxWidth: "48rem" }}>
             Professional Masterclasses &amp; Workshops
           </h1>
         </div>
@@ -39,8 +42,8 @@ function Events() {
 
       <section className="border-bottom bg-body">
         <div className="container py-5 text-center">
-          <h2 className="fs-3 fw-medium text-white">Upcoming Schedule</h2>
-          <p className="mx-auto mt-3 text-body-secondary" style={{ maxWidth: "28rem" }}>
+          <h2 data-usal="fade-r" className="fs-3 fw-medium text-white">Upcoming Schedule</h2>
+          <p data-usal="fade-r delay-100" className="mx-auto mt-3 text-body-secondary" style={{ maxWidth: "28rem" }}>
             There are currently no upcoming events. Please check back later
             or join our mailing list for updates.
           </p>
@@ -50,6 +53,7 @@ function Events() {
 
       <Footer />
     </div>
+    </USALProvider>
   );
 }
 

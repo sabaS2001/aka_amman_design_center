@@ -39,28 +39,37 @@ const features = [
 function Features() {
   return (
     <section className="border-bottom bg-body" id={style.features}>
-      <div className="container row gy-5 py-5 mx-auto my-auto align-items-center">
-        {features.map((feature) => (
-          <div key={feature.title} id={style.feature} className="col-sm-4 align-items-center justify-content-center text-center">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-primary mb-3"
-              width="3rem"
-              height="3rem"
-            >
-              {feature.icon}
-            </svg>
-            <h2 className="fs-4 fw-bold text-white mb-2">{feature.title}</h2>
-            <p className="text-body-secondary">
-              {feature.description}
-            </p>
-          </div>
-        ))}
+      <div className="container py-5">
+        <div className="row g-0">
+          {features.map((feature, index) => (
+            <div key={feature.title} id={style.feature} className="col-md-4">
+              <div
+                data-usal="slide-up"
+                data-usal-delay={index * 150}
+                className={style.featureInner}
+              >
+                <span className={style.index}>{String(index + 1).padStart(2, "0")}</span>
+                <div className={style.featureHead}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-primary"
+                    width="1.75rem"
+                    height="1.75rem"
+                  >
+                    {feature.icon}
+                  </svg>
+                  <h2 className="fs-5 fw-semibold text-white mb-0">{feature.title}</h2>
+                </div>
+                <p className="text-body-secondary mb-0">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

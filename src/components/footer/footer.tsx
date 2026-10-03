@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const socials = [
   {
     label: "Facebook",
@@ -29,8 +31,14 @@ const socials = [
 function Footer() {
   return (
     <footer className="bg-body border-top">
-      <div className="container py-4 d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
-        <span className="fs-5 fw-semibold text-white">AKA Design Center</span>
+      <div className="container py-5 d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+        <Link to="/" className="d-inline-flex align-items-center">
+          <img
+            src="/assets/images/logo/logoWhite.webp"
+            alt="AKA Design Center"
+            style={{ width: "130px" }}
+          />
+        </Link>
 
         <p className="mb-0 small text-body-secondary order-3 order-sm-2">
           © 2026 AKA Design Center. All rights reserved.
@@ -46,8 +54,8 @@ function Footer() {
                 strokeWidth="1.4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                width="1rem"
-                height="1rem"
+                width="1.5rem"
+                height="1.5rem"
               >
                 {social.icon}
               </svg>

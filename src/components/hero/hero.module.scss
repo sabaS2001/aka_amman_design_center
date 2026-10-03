@@ -5,28 +5,76 @@
     background-image: url('/assets/images/header/header_four.webp');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
-    
+    background-position: center;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    .heroOverlay {
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(0deg, rgba(11, 10, 8, 0.92) 0%, rgba(11, 10, 8, 0.55) 42%, rgba(11, 10, 8, 0.25) 70%, rgba(11, 10, 8, 0.45) 100%),
+            linear-gradient(90deg, rgba(11, 10, 8, 0.55) 0%, rgba(11, 10, 8, 0) 55%);
+        pointer-events: none;
+    }
+
+    #heroInner {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        min-height: 100svh;
+        padding-top: 6rem;
+    }
+
+    .scrollCue {
+        position: absolute;
+        left: 50%;
+        bottom: 1.75rem;
+        z-index: 1;
+        width: 1.5rem;
+        height: 2.5rem;
+        border: 1px solid rgba($white, 0.4);
+        border-radius: 999px;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        padding-top: 0.4rem;
+
+        span {
+            width: 3px;
+            height: 6px;
+            border-radius: 999px;
+            background: $primary_color;
+            animation: scrollCueMove 1.8s ease-in-out infinite;
+        }
+    }
+
+    @keyframes scrollCueMove {
+        0% { opacity: 0; transform: translateY(0); }
+        40% { opacity: 1; }
+        100% { opacity: 0; transform: translateY(10px); }
+    }
+
     #heroContent {
         color: $white;
-        
+
 
         #small {
-            font-family: 'Inter_SemiBold';
+            font-family: 'Manrope_SemiBold';
             font-size: 15px;
             line-height: 1.5rem;
             letter-spacing: 2.7px;
         }
 
         #content {
-            font-family: 'Inter_Regular';
+            font-family: 'Manrope_Regular';
             font-size: 18px;
             line-height: 1.5rem;
             letter-spacing: 0.5px;
         }
 
         #exploreBtn {
-            font-family: "Inter_Regular";
+            font-family: "Manrope_Regular";
             font-size: 15px;
             line-height: 1.5rem;
             letter-spacing: 0.7px;
@@ -41,7 +89,7 @@
         }
 
         #showroomBtn {
-            font-family: "Inter_Regular";
+            font-family: "Manrope_Regular";
             font-size: 15px;
             line-height: 1.5rem;
             letter-spacing: 0.7px;

@@ -1,0 +1,24 @@
+.watermark {
+    position: fixed;
+    right: -4rem;
+    bottom: -4rem;
+    width: 26rem;
+    height: 27.9rem;
+    background-image: url("/assets/images/logo/logoWhite.webp");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 72.5rem auto;
+    opacity: 0;
+    transform-origin: bottom right;
+    z-index: 1;
+    pointer-events: none;
+    will-change: opacity, filter, transform;
+
+    @media (max-width: 575.98px) {
+        width: 16rem;
+        height: 17.17rem;
+        background-size: 44.6rem auto;
+        right: -2.5rem;
+        bottom: -2.5rem;
+    }
+}

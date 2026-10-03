@@ -1,0 +1,105 @@
+@use "../../style/variables" as *;
+
+.calendar {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid $dark_brown;
+    border-radius: 0.4rem;
+    padding: 1rem;
+    transition: border-color 0.15s ease;
+}
+
+.invalid {
+    border-color: #dc3545;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.monthLabel {
+    font-family: "Manrope_SemiBold";
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.navBtn {
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $dark_brown;
+    border-radius: 0.25rem;
+    background: transparent;
+    color: $white;
+    line-height: 1;
+    font-size: 1.1rem;
+    padding: 0;
+
+    &:hover {
+        border-color: $primary_color;
+        color: $primary_color;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.35rem;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $warm_beige;
+    padding-bottom: 0.35rem;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+}
+
+.day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 0.3rem;
+    background: rgba(255, 255, 255, 0.04);
+    color: $white;
+    font-size: 0.85rem;
+    padding: 0;
+
+    &:hover:not(:disabled) {
+        border-color: $primary_color;
+    }
+
+    &:disabled {
+        color: $dark_brown;
+        cursor: not-allowed;
+    }
+}
+
+.today {
+    border-color: $primary_color;
+}
+
+.selected {
+    background: $primary_color;
+    border-color: $primary_color;
+    color: $black;
+    font-weight: 600;
+}
+
+.invalidText {
+    color: #dc3545;
+}

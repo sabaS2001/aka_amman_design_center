@@ -1,0 +1,23 @@
+@use "../../style/global";
+@use "../../style/variables";
+
+#hero {
+    h1 {
+        font-family: "Manrope_Light" !important;
+        font-size: clamp(2.25rem, 5vw + 1rem, 5rem);
+    }
+}
+
+#thirdSection {
+    h2 {
+        font-family: "Manrope_SemiBold" !important;
+        font-size: clamp(1.75rem, 4vw + 1rem, 3.125rem);
+    }
+}
+
+#fourthSection {
+    h2 {
+        font-family: "Manrope_Bold" !important;
+        font-size: clamp(1.75rem, 4vw + 1rem, 3.125rem);
+    }
+}

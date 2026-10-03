@@ -1,17 +1,34 @@
+import { USALProvider } from "@usal/react";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 
 function Contact() {
   return (
+    <USALProvider>
     <div className="d-flex flex-column min-vh-100 bg-body">
       <Navbar active="Contact Us" />
       <main className="flex-grow-1">
-      <section className="border-bottom">
-        <div className="container pt-5 pb-4">
-          <h1 className="display-5 fw-medium text-white lh-sm" style={{ maxWidth: "40rem" }}>
+      <section className="position-relative overflow-hidden border-bottom" style={{ minHeight: "22rem" }}>
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{
+            backgroundImage: "url('/assets/images/header/header_three.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(11,10,8,0.92) 0%, rgba(11,10,8,0.6) 55%, rgba(11,10,8,0.8) 100%)",
+          }}
+        />
+        <div className="container position-relative d-flex flex-column justify-content-center h-100 py-5">
+          <h1 data-usal="fade-r" className="display-5 fw-medium text-white lh-sm" style={{ maxWidth: "40rem" }}>
             Connect with <span className="text-gold-dark">AKA Design Center</span>
           </h1>
-          <p className="mt-3 text-body-secondary" style={{ maxWidth: "34rem" }}>
+          <p data-usal="fade-r delay-150" className="mt-3 text-body-secondary" style={{ maxWidth: "34rem" }}>
             Experience the architectural precision of our wood materials.
             Whether you are an architect, designer, or homeowner, our team is
             ready to assist with your next masterpiece.
@@ -21,7 +38,7 @@ function Contact() {
 
       <section className="border-bottom bg-body">
         <div className="container row g-4 py-5 mx-auto my-auto">
-          <div className="col-lg-7">
+          <div className="col-lg-7" data-usal="fade-r">
             <div className="card bg-body-secondary border-0 p-4 h-100">
               <h2 className="eyebrow text-white">Send a Message</h2>
 
@@ -56,7 +73,7 @@ function Contact() {
             </div>
           </div>
 
-          <div className="col-lg-5 d-flex flex-column gap-3">
+          <div className="col-lg-5 d-flex flex-column gap-3" data-usal="fade-l">
             <div className="card bg-body-secondary border-0 p-4">
               <svg
                 viewBox="0 0 24 24"
@@ -76,9 +93,9 @@ function Contact() {
                 Showroom Address
               </p>
               <p className="mb-0 text-white">
-                452 Architectural Way, Suite 100, Design District
+                Abu Bakr Al-Sideeq St. 172
                 <br />
-                New York, NY 10013
+                Amman, Jordan
               </p>
             </div>
 
@@ -101,7 +118,7 @@ function Contact() {
                   <p className="mt-3 mb-1 small fw-semibold tracking-widest text-body-secondary text-uppercase">
                     Phone
                   </p>
-                  <p className="mb-0 text-white">+1 (212) 555-8902</p>
+                  <p className="mb-0 text-white">962 064202240</p>
                 </div>
                 <div className="col-6">
                   <svg
@@ -121,7 +138,7 @@ function Contact() {
                   <p className="mt-3 mb-1 small fw-semibold tracking-widest text-body-secondary text-uppercase">
                     Email
                   </p>
-                  <p className="mb-0 text-white text-break">concierge@aka.design</p>
+                  <p className="mb-0 text-white text-break">info@akadesigncenter.com</p>
                 </div>
               </div>
             </div>
@@ -146,16 +163,16 @@ function Contact() {
               </p>
               <div className="text-white small">
                 <div className="d-flex justify-content-between gap-3">
-                  <span className="text-body-secondary">Mon &mdash; Fri</span>
-                  <span>09:00 &mdash; 18:00</span>
+                  <span className="text-body-secondary">Sun &mdash; Thu</span>
+                  <span>09:00 &mdash; 17:00</span>
+                </div>
+                <div className="d-flex justify-content-between gap-3">
+                  <span className="text-body-secondary">Friday</span>
+                  <span>Closed</span>
                 </div>
                 <div className="d-flex justify-content-between gap-3">
                   <span className="text-body-secondary">Saturday</span>
-                  <span>10:00 &mdash; 16:00</span>
-                </div>
-                <div className="d-flex justify-content-between gap-3">
-                  <span className="text-body-secondary">Sunday</span>
-                  <span>By Appointment</span>
+                  <span>09:00 &mdash; 17:00</span>
                 </div>
               </div>
             </div>
@@ -164,39 +181,32 @@ function Contact() {
       </section>
 
       <section id="map" className="position-relative overflow-hidden border-bottom" style={{ height: "22rem" }}>
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100"
-          style={{
-            opacity: 0.4,
-            backgroundImage:
-              "linear-gradient(rgba(163,157,146,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(163,157,146,0.15) 1px, transparent 1px)",
-            backgroundSize: "36px 36px",
-            backgroundColor: "#14110d",
-          }}
+        <iframe
+          src="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan&z=15&output=embed"
+          title="AKA Design Center location map"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="position-absolute top-0 start-0 w-100 h-100 border-0"
         />
         <div
-          className="position-absolute top-0 start-0 w-100 h-100"
-          style={{
-            background:
-              "radial-gradient(50% 60% at 50% 50%, transparent 0%, rgba(11,10,8,0.85) 100%)",
-          }}
-        />
-        <div className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center gap-3">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-primary"
-            width="2.25rem"
-            height="2.25rem"
-          >
-            <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" />
-            <circle cx="12" cy="9.5" r="2.3" />
-          </svg>
-          <span className="bg-body-tertiary rounded px-3 py-2 small fw-semibold tracking-widest text-white text-uppercase">
+          className="position-absolute bottom-0 start-0 m-3 d-flex align-items-center gap-2"
+          style={{ pointerEvents: "none" }}
+        >
+          <span className="bg-body-tertiary rounded px-3 py-2 small fw-semibold tracking-widest text-white text-uppercase d-inline-flex align-items-center gap-2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-primary"
+              width="1rem"
+              height="1rem"
+            >
+              <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" />
+              <circle cx="12" cy="9.5" r="2.3" />
+            </svg>
             Visit AKA Design Center
           </span>
         </div>
@@ -205,6 +215,7 @@ function Contact() {
 
       <Footer />
     </div>
+    </USALProvider>
   );
 }
 

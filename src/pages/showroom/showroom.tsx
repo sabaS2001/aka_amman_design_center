@@ -1,3 +1,4 @@
+import { USALProvider } from "@usal/react";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 
@@ -15,6 +16,7 @@ const checklist = [
 
 function Showroom() {
   return (
+    <USALProvider>
     <div className="d-flex flex-column min-vh-100 bg-body">
       <Navbar active="Showroom" />
       <main className="flex-grow-1">
@@ -22,35 +24,36 @@ function Showroom() {
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
-            background:
-              "linear-gradient(115deg,#241a12 0%,#4a3620 35%,#6b4f34 60%,#1c140d 100%)",
+            backgroundImage: "url('/assets/images/header/header_four.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
             background:
-              "linear-gradient(90deg, rgba(11,10,8,0.94) 0%, rgba(11,10,8,0.55) 50%, rgba(11,10,8,0.25) 100%)",
+              "linear-gradient(90deg, rgba(11,10,8,0.94) 0%, rgba(11,10,8,0.6) 50%, rgba(11,10,8,0.35) 100%)",
           }}
         />
 
         <div className="container position-relative py-5 mx-auto my-auto">
-          <p className="eyebrow text-primary mb-3">Flagship Location</p>
-          <h1 className="display-4 fw-medium text-white lh-sm" style={{ maxWidth: "40rem" }}>
+          <p data-usal="fade-r" className="eyebrow text-primary mb-3">Flagship Location</p>
+          <h1 data-usal="fade-r delay-100" className="display-4 fw-medium text-white lh-sm" style={{ maxWidth: "40rem" }}>
             Architectural Mastery in Every Grain.
           </h1>
-          <p className="mt-3 text-body-secondary" style={{ maxWidth: "32rem" }}>
+          <p data-usal="fade-r delay-200" className="mt-3 text-body-secondary" style={{ maxWidth: "32rem" }}>
             Experience the tactile precision of AKA Design Center. Our
             flagship showroom is a curated gallery of premium cladding,
             decorative tops, and structural wood innovations for the modern
             visionary.
           </p>
-          <div className="mt-4 d-flex flex-wrap align-items-center gap-3">
+          <div data-usal="fade-r delay-300" className="mt-4 d-flex flex-wrap align-items-center gap-3">
             <a href="/booking" className="btn btn-primary text-uppercase tracking-widest small fw-semibold">
               Book a Consultation
             </a>
-            <a href="#tour" className="btn btn-outline-cream text-uppercase tracking-widest small fw-semibold">
-              Virtual Tour
+            <a href="/inspirations" className="btn btn-outline-cream text-uppercase tracking-widest small fw-semibold">
+              Explore Materials
             </a>
           </div>
         </div>
@@ -58,11 +61,10 @@ function Showroom() {
 
       <section className="border-top border-bottom bg-body">
         <div className="container row g-4 py-5 mx-auto my-auto">
-          <div className="col-sm-4">
+          <div data-usal="slide-up" className="col-sm-4">
             <p className="small fw-semibold tracking-widest text-primary text-uppercase">Location</p>
-            <p className="mb-0 text-white">442 Architectural Blvd.</p>
-            <p className="mb-0 text-white">Design District, Ste 100</p>
-            <p className="mb-0 text-white">Metropolis, MC 90210</p>
+            <p className="mb-0 text-white">Abu Bakr Al-Sideeq St. 172</p>
+            <p className="mb-0 text-white">Amman, Jordan</p>
             <a
               href="#map"
               className="d-inline-block mt-2 small fw-semibold tracking-widest text-primary text-uppercase text-decoration-none"
@@ -70,42 +72,43 @@ function Showroom() {
               Get Directions &rarr;
             </a>
           </div>
-          <div className="col-sm-4">
+          <div data-usal="slide-up delay-150" className="col-sm-4">
             <p className="small fw-semibold tracking-widest text-primary text-uppercase">Experience Hours</p>
             <div className="small">
               <div className="d-flex justify-content-between gap-4">
-                <span className="text-white">Mon &mdash; Fri</span>
-                <span className="text-white">09:00 - 19:00</span>
+                <span className="text-white">Sun &mdash; Thu</span>
+                <span className="text-white">09:00 - 17:00</span>
+              </div>
+              <div className="d-flex justify-content-between gap-4">
+                <span className="text-white">Friday</span>
+                <span className="text-body-secondary">Closed</span>
               </div>
               <div className="d-flex justify-content-between gap-4">
                 <span className="text-white">Saturday</span>
-                <span className="text-white">10:00 - 16:00</span>
-              </div>
-              <div className="d-flex justify-content-between gap-4">
-                <span className="text-white">Sunday</span>
-                <span className="text-body-secondary">By Appointment Only</span>
+                <span className="text-white">09:00 - 17:00</span>
               </div>
             </div>
           </div>
-          <div className="col-sm-4">
+          <div data-usal="slide-up delay-300" className="col-sm-4">
             <p className="small fw-semibold tracking-widest text-primary text-uppercase">Direct Access</p>
             <p className="mb-0 small text-body-secondary">General Inquiries:</p>
-            <p className="text-white">hello@akadesigncenter.com</p>
+            <p className="text-white">info@akadesigncenter.com</p>
             <p className="mb-0 small text-body-secondary">Showroom Desk:</p>
-            <p className="text-white">+1 (555) 892-4400</p>
+            <p className="text-white">962 064202240</p>
           </div>
         </div>
       </section>
 
       <section className="border-bottom bg-body">
         <div className="container row g-3 py-5 mx-auto my-auto">
-          <div className="col-lg-7">
+          <div data-usal="fade-r" className="col-lg-7">
             <div
               className="position-relative overflow-hidden rounded h-100"
               style={{
                 minHeight: "320px",
-                background:
-                  "linear-gradient(180deg,#0d1a2b 0%,#16283f 45%,#3a2c17 100%)",
+                backgroundImage: "url('/assets/images/header/header_three.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             >
               <div
@@ -125,7 +128,7 @@ function Showroom() {
           </div>
 
           <div className="col-lg-5 d-flex flex-column gap-3">
-            <div className="border rounded p-4 flex-fill">
+            <div data-usal="fade-l" className="border rounded p-4 flex-fill">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -147,7 +150,7 @@ function Showroom() {
               </p>
             </div>
 
-            <div className="rounded p-4 flex-fill bg-primary">
+            <div data-usal="fade-l delay-150" className="rounded p-4 flex-fill bg-primary">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -173,33 +176,32 @@ function Showroom() {
 
       <section className="bg-body">
         <div className="container row align-items-center g-5 py-5 mx-auto my-auto">
-          <div className="col-lg-6 position-relative">
-            <div
+          <div data-usal="fade-r" className="col-lg-6 position-relative">
+            <img
+              src="/assets/images/header/header_five.jpg"
+              alt="AKA Design Center wood material display"
               className="rounded w-100"
-              style={{
-                aspectRatio: "1 / 1",
-                background:
-                  "linear-gradient(160deg,#6b4c2e 0%,#4a331f 45%,#241a12 100%)",
-              }}
+              style={{ aspectRatio: "1 / 1", objectFit: "cover" }}
             />
-            <div
+            <img
+              src="/assets/images/header/header_one.jpg"
+              alt="AKA Design Center wood swatch samples"
               className="position-absolute d-none d-sm-block rounded border border-4 border-body"
               style={{
                 bottom: "-1.5rem",
                 right: "-1.5rem",
                 width: "10rem",
                 height: "8rem",
-                background:
-                  "linear-gradient(160deg,#2c2c2e 0%,#1a1a1c 60%,#0d0d0e 100%)",
+                objectFit: "cover",
               }}
             />
           </div>
 
           <div className="col-lg-6">
-            <h2 className="fs-2 fw-medium text-white lh-sm">
+            <h2 data-usal="fade-l" className="fs-2 fw-medium text-white lh-sm">
               A Sanctuary for Professional Specifications.
             </h2>
-            <p className="mt-3 text-body-secondary" style={{ maxWidth: "30rem" }}>
+            <p data-usal="fade-l delay-100" className="mt-3 text-body-secondary" style={{ maxWidth: "30rem" }}>
               At AKA Design Center, we believe that materials are the
               language of architecture. Our space is designed to remove
               distractions, allowing professionals to focus on the nuances
@@ -207,8 +209,13 @@ function Showroom() {
             </p>
 
             <ul className="list-unstyled mt-4">
-              {checklist.map((item) => (
-                <li key={item.title} className="d-flex gap-3 mb-3">
+              {checklist.map((item, index) => (
+                <li
+                  key={item.title}
+                  data-usal="fade-l"
+                  data-usal-delay={200 + index * 150}
+                  className="d-flex gap-3 mb-3"
+                >
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -239,6 +246,7 @@ function Showroom() {
 
       <Footer />
     </div>
+    </USALProvider>
   );
 }
 

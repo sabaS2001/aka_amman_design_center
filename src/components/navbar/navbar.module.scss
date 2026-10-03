@@ -1,11 +1,18 @@
 @use "../../style/global";
-@use "../../style/variables";
+@use "../../style/variables"as *;
+
+#brand {
+    img {
+        width: 155px;
+    }
+
+}
 
 #navBar {
     padding: 35px 20px;
 
     #navLink {
-        font-family: "Inter_SemiBold";
+        font-family: "Manrope_Regular";
         font-size: 15px;
     }
 
@@ -13,7 +20,43 @@
 
 #bookConsultation {
     letter-spacing: 1px;
-    font-family: "Inter_SemiBold";
+    font-family: "Manrope_SemiBold";
     font-size: 15px;
     padding: 12px 30px;
+}
+
+#menuToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+#mobileMenu {
+    position: fixed;
+    inset: 0;
+    z-index: 1035;
+    padding: 6.5rem 1.5rem 2rem;
+    background-color: rgba($near_black, 0.98);
+    backdrop-filter: blur(6px);
+    overflow-y: auto;
+    justify-content: center;
+    animation: mobileMenuIn 0.2s ease;
+
+    a {
+        font-family: "Manrope_SemiBold";
+        font-size: 1.15rem;
+    }
+}
+
+@keyframes mobileMenuIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
