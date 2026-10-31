@@ -50,6 +50,28 @@
     }
 }
 
+.mobileMenuWatermark {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    width: 22rem;
+    height: 23.63rem;
+    transform: translate(-50%, -50%);
+    background-image: url("/assets/images/logo/logoWhite.webp");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 61.34rem auto;
+    opacity: 0.045;
+    pointer-events: none;
+
+    @media (max-width: 400px) {
+        width: 16rem;
+        height: 17.17rem;
+        background-size: 44.6rem auto;
+    }
+}
+
 @keyframes mobileMenuIn {
     from {
         opacity: 0;

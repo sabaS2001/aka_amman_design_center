@@ -1,0 +1,286 @@
+@use "../../style/global";
+@use "../../style/variables" as *;
+
+#hero {
+    background-color: #0b0a08;
+}
+
+// ---- Orchestrated page-load reveal ----
+// One continuous cascade, timed with animation-delay, instead of
+// scattered scroll-triggered micro-interactions.
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.reveal {
+    animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.heroLogoMark {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 4.5rem;
+    z-index: 1;
+    width: 9rem;
+    height: 3.47rem;
+    background-image: url("/assets/images/logo/logoWhite.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.95;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.55));
+    pointer-events: none;
+    animation: revealFade 0.8s ease-out 0.5s both;
+
+    @media (max-width: 575.98px) {
+        right: 1rem;
+        bottom: 1rem;
+        width: 7rem;
+        height: 2.7rem;
+    }
+}
+
+.heroPanel {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: contrast(1.08) saturate(1.1);
+    animation: heroReveal 1s ease-out both, heroZoom 26s ease-in-out infinite alternate 1s;
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.025);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .heroPanel,
+    .heroLogoMark,
+    .reveal {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.scrollCue {
+    position: absolute;
+    left: 50%;
+    bottom: 4.5rem;
+    z-index: 1;
+    width: 1.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba($warm_beige, 0.4);
+    border-radius: 999px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    padding-top: 0.4rem;
+    animation: revealFade 0.8s ease-out 1.3s both;
+
+    span {
+        width: 3px;
+        height: 6px;
+        border-radius: 999px;
+        background: $primary_color;
+        animation: scrollCueMove 1.8s ease-in-out infinite 2.1s;
+    }
+}
+
+@keyframes scrollCueMove {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scrollCue {
+        animation: none;
+        opacity: 1;
+        transform: translateX(-50%);
+
+        span {
+            animation: none;
+            opacity: 1;
+        }
+    }
+}
+
+.heroDivider {
+    @media (min-width: 992px) {
+        border-right: 1px solid rgba($warm_beige, 0.3);
+        padding-right: 2.5rem !important;
+    }
+}
+
+.introOverlap {
+    margin-top: -3.5rem;
+    border-radius: 0.75rem 0.75rem 0 0;
+
+    @media (max-width: 575.98px) {
+        margin-top: -2rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+}
+
+.galleryGrid {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 9rem;
+    gap: 0.75rem;
+
+    @media (max-width: 767.98px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 7rem;
+    }
+}
+
+.galleryItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+
+    &:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    &:nth-child(4),
+    &:nth-child(6) {
+        grid-column: span 2;
+    }
+
+    img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.06);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba($primary_color, 0);
+        transition: background 0.2s ease;
+    }
+
+    &:hover::after {
+        background: rgba(11, 10, 8, 0.15);
+    }
+}
+
+.lightboxOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1060;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: rgba(5, 4, 3, 0.92);
+    backdrop-filter: blur(4px);
+}
+
+.lightboxImage {
+    max-width: 56rem;
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 0.25rem;
+}
+
+.lightboxClose,
+.lightboxNav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 1px solid rgba($warm_beige, 0.3);
+    background: rgba($near_black, 0.6);
+    color: $white;
+
+    &:hover {
+        border-color: $primary_color;
+        color: $primary_color;
+    }
+}
+
+.lightboxClose {
+    top: 1.25rem;
+    right: 1.25rem;
+}
+
+.lightboxPrev {
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightboxNext {
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightboxCounter {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $warm_beige;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+}

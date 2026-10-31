@@ -5,7 +5,6 @@ import style from "./navbar.module.scss";
 const links = [
   { label: "About", href: "/about" },
   { label: "Inspirations", href: "/inspirations" },
-  { label: "Showroom", href: "/showroom" },
   { label: "Events", href: "/events" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -28,9 +27,9 @@ function Navbar({ active }: { active?: string }) {
   return (
     <header className="sticky-top">
       <div className="navbar-blur border-bottom">
-      <div className="container d-flex align-items-center gx-1 justify-content-between py-3">
+      <div className="container d-flex align-items-center gx-1 justify-content-between  px-3 py-3">
         <Link to="/" className="fs-5 fw-semibold text-decoration-none text-white text-truncate" id={style.brand}>
-          <img src="/assets/images/logo/logoWhite.webp" alt="Amman Design Center Logo"/>
+          <img src="/assets/images/logo/logoWhite.webp" alt="AKA Design Center Logo"/>
         </Link>
 
         <nav className="d-none d-lg-flex align-items-center gap-4" id={style.navBar}>
@@ -94,6 +93,7 @@ function Navbar({ active }: { active?: string }) {
           id={style.mobileMenu}
           className="d-lg-none d-flex flex-column"
         >
+          <div className={style.mobileMenuWatermark} aria-hidden="true" />
           {links.map((link) => (
             <Link
               key={link.label}

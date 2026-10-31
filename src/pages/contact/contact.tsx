@@ -12,7 +12,7 @@ function Contact() {
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
-            backgroundImage: "url('/assets/images/header/header_three.jpg')",
+            backgroundImage: "url('/assets/images/gallery/showroom-reception-desk.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -97,6 +97,14 @@ function Contact() {
                 <br />
                 Amman, Jordan
               </p>
+              <a
+                href="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan"
+                target="_blank"
+                rel="noreferrer"
+                className="d-inline-block mt-2 small fw-semibold tracking-widest text-primary text-uppercase text-decoration-none"
+              >
+                Get Directions &rarr;
+              </a>
             </div>
 
             <div className="card bg-body-secondary border-0 p-4">
@@ -118,7 +126,7 @@ function Contact() {
                   <p className="mt-3 mb-1 small fw-semibold tracking-widest text-body-secondary text-uppercase">
                     Phone
                   </p>
-                  <p className="mb-0 text-white">962 064202240</p>
+                  <p className="mb-0 text-white">+962 0796440510</p>
                 </div>
                 <div className="col-6">
                   <svg

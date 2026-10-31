@@ -12,7 +12,7 @@ function Events() {
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
-            backgroundImage: "url('/assets/images/header/header_five.jpg')",
+            backgroundImage: "url('/assets/images/gallery/showroom-media-wall.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

@@ -53,7 +53,7 @@ function Booking() {
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{
-            backgroundImage: "url('/assets/images/header/header_two.jpg')",
+            backgroundImage: "url('/assets/images/gallery/showroom-lounge-lobby.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -84,7 +84,15 @@ function Booking() {
               <p className="mb-0 small text-body-secondary">
                 Abu Bakr Al-Sideeq St. 172
               </p>
-              <p className="small text-body-secondary">Amman, Jordan</p>
+              <p className="mb-0 small text-body-secondary">Amman, Jordan</p>
+              <a
+                href="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan"
+                target="_blank"
+                rel="noreferrer"
+                className="d-inline-block mt-1 small fw-semibold tracking-widest text-primary text-uppercase text-decoration-none"
+              >
+                Get Directions &rarr;
+              </a>
 
               <p className="mt-3 small fw-semibold tracking-widest text-white text-uppercase mb-1">
                 Hours

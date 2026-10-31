@@ -1,29 +1,7 @@
 import { useState, type FormEvent } from "react";
-import { Link } from "react-router-dom";
 import Modal, { type ModalStatus } from "../modal/modal";
 
 const slots = ["09:00", "10:30", "13:00", "14:30", "16:00"];
-
-const events = [
-  {
-    month: "Oct",
-    day: "14",
-    title: "Sustainable Architecture Workshop",
-    meta: "AKA Showroom, Amman | 14:00 - 17:30",
-  },
-  {
-    month: "Oct",
-    day: "21",
-    title: "Design Trends 2025",
-    meta: "AKA Showroom, Amman | 10:00 - 13:00",
-  },
-  {
-    month: "Nov",
-    day: "04",
-    title: "Surface Texture Masterclass",
-    meta: "AKA Showroom, Amman | 11:00 - 15:00",
-  },
-];
 
 const emptyErrors = { projectName: false, email: false, preferredDate: false };
 
@@ -66,29 +44,14 @@ function Events() {
       <div className="container row gy-5 py-5 mx-auto my-auto align-items-center">
         <div data-usal="fade-r" className="col-lg-6">
           <p className="eyebrow text-primary mb-2">What's On</p>
-          <h2 className="fs-2 fw-medium text-white mb-4">Showroom Events</h2>
-          <ul className="list-unstyled mb-0">
-            {events.map((event) => (
-              <li key={event.title} className="border-top">
-                <Link
-                  to="/events"
-                  className="d-flex align-items-center gap-3 py-3 text-decoration-none"
-                >
-                  <div className="text-center" style={{ width: "3.5rem" }}>
-                    <p className="mb-0 text-primary text-uppercase tracking-widest small fw-semibold">
-                      {event.month}
-                    </p>
-                    <p className="mb-0 fs-3 fw-medium text-white">{event.day}</p>
-                  </div>
-                  <div className="flex-grow-1">
-                    <p className="mb-0 fw-medium text-white">{event.title}</p>
-                    <p className="mb-0 mt-1 small text-body-secondary">{event.meta}</p>
-                  </div>
-                  <span className="text-body-secondary">&rarr;</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h2 className="fs-2 fw-medium text-white mb-4">Upcoming Workshops</h2>
+          <div className="border-top border-bottom py-4">
+            <p className="mb-2 fw-medium text-white">Upcoming workshops are on the way.</p>
+            <p className="mb-0 text-body-secondary">
+              Our masterclasses and design sessions at the Amman showroom will be
+              announced soon. Check back, or reach out to be the first to hear about them.
+            </p>
+          </div>
         </div>
 
         <div id="consultation" data-usal="fade-l delay-150" className="col-lg-6">

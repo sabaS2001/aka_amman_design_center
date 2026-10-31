@@ -1,78 +1,57 @@
 @font-face {
-  font-family: "Inter_Black";
-  src: url("../assets/fonts/Inter_Black.ttf");
+  font-family: "Manrope_Light";
+  src: url("/assets/fonts/Manrope-Light.ttf");
 }
 @font-face {
-  font-family: "Inter_BlackItalic";
-  src: url("../assets/fonts/Inter_BlackItalic.ttf");
+  font-family: "Manrope_ExtraLight";
+  src: url("/assets/fonts/Manrope-ExtraLight.ttf");
 }
 @font-face {
-  font-family: "Inter_Bold";
-  src: url("../assets/fonts/Inter_Bold.ttf");
+  font-family: "Manrope_Regular";
+  src: url("/assets/fonts/Manrope-Regular.ttf");
 }
 @font-face {
-  font-family: "Inter_BoldItalic";
-  src: url("../assets/fonts/Inter_BoldItalic.ttf");
+  font-family: "Manrope_Medium";
+  src: url("/assets/fonts/Manrope-Medium.ttf");
 }
 @font-face {
-  font-family: "Inter_ExtrBold";
-  src: url("../assets/fonts/Inter_ExtrBold.ttf");
+  font-family: "Manrope_SemiBold";
+  src: url("/assets/fonts/Manrope-SemiBold.ttf");
 }
 @font-face {
-  font-family: "Inter_ExtrBoldItalic";
-  src: url("../assets/fonts/Inter_ExtrBoldItalic.ttf");
+  font-family: "Manrope_Bold";
+  src: url("/assets/fonts/Manrope-Bold.ttf");
 }
 @font-face {
-  font-family: "Inter_ExtraLight";
-  src: url("../assets/fonts/Inter_ExtraLight.ttf");
+  font-family: "Manrope_ExtraBold";
+  src: url("/assets/fonts/Manrope-ExtraBold.ttf");
 }
-@font-face {
-  font-family: "Inter_ExtraLightItalic";
-  src: url("../assets/fonts/Inter_ExtraLightItalic.ttf");
+#features .featureInner {
+  position: relative;
+  height: 100%;
+  padding: 2.5rem 2.25rem;
+  border-top: 1px solid rgba(211, 196, 183, 0.2);
+  border-left: 1px solid rgba(211, 196, 183, 0.2);
 }
-@font-face {
-  font-family: "Inter_Italic";
-  src: url("../assets/fonts/Inter_Italic.ttf");
+#features .index {
+  display: block;
+  font-family: "Manrope_Light";
+  font-size: 2.75rem;
+  line-height: 1;
+  color: white;
+  margin-bottom: 1.25rem;
 }
-@font-face {
-  font-family: "Inter_Light";
-  src: url("../assets/fonts/Inter_Light.ttf");
+#features .featureHead {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
 }
-@font-face {
-  font-family: "Inter_LightItalic";
-  src: url("../assets/fonts/Inter_LightItalic.ttf");
+#features .col-md-4:first-child .featureInner {
+  border-left: 0;
 }
-@font-face {
-  font-family: "Inter_Medium";
-  src: url("../assets/fonts/Inter_Medium.ttf");
-}
-@font-face {
-  font-family: "Inter_MediumItalic";
-  src: url("../assets/fonts/Inter_MediumItalic.ttf");
-}
-@font-face {
-  font-family: "Inter_Regular";
-  src: url("../assets/fonts/Inter_Regular.ttf");
-}
-@font-face {
-  font-family: "Inter_SemiBold";
-  src: url("../assets/fonts/Inter_SemiBold.ttf");
-}
-@font-face {
-  font-family: "Inter_SemiBoldItalic";
-  src: url("../assets/fonts/Inter_SemiBoldItalic.ttf");
-}
-@font-face {
-  font-family: "Inter_Thin";
-  src: url("../assets/fonts/Inter_Thin.ttf");
-}
-@font-face {
-  font-family: "Inter_ThinItalic";
-  src: url("../assets/fonts/Inter_ThinItalic.ttf");
-}
-#features #feature {
-  border: 1px solid #C69C6D;
-  padding: 20px;
-  padding-block: 3%;
-  height: 30vh;
+@media (max-width: 767px) {
+  #features .featureInner {
+    border-left: 0;
+  }
 }/*# sourceMappingURL=features.module.css.map */
