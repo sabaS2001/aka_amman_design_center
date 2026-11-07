@@ -51,7 +51,7 @@ function Location() {
           <div className={style.divider} />
           <div className={style.infoCol}>
             <a
-              href="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan"
+              href="https://www.google.com/maps?cid=1556695017714774737"
               target="_blank"
               rel="noreferrer"
               className="btn btn-outline-cream text-uppercase tracking-widest small fw-semibold"

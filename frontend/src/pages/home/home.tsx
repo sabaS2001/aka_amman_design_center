@@ -204,7 +204,7 @@ function Home() {
                         Amman, Jordan
                       </p>
                       <a
-                        href="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan"
+                        href="https://www.google.com/maps?cid=1556695017714774737"
                         target="_blank"
                         rel="noreferrer"
                         className="d-inline-block mt-2 small fw-semibold tracking-widest text-primary text-uppercase text-decoration-none"
@@ -281,6 +281,18 @@ function Home() {
                   </div>
                 </div>
               </div>
+
+              <div data-usal="fade-u" className="col-12">
+                <div className="card bg-body-secondary border-0 p-0 overflow-hidden" style={{ height: "20rem" }}>
+                  <iframe
+                    src="https://www.google.com/maps?cid=1556695017714774737&output=embed"
+                    title="AKA Design Center location map"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-100 h-100 border-0"
+                  />
+                </div>
+              </div>
             </div>
           </section>
 
@@ -300,7 +312,7 @@ function Home() {
                 <a
                   data-usal="fade-u"
                   data-usal-delay="100"
-                  href="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan"
+                  href="https://www.google.com/maps?cid=1556695017714774737"
                   target="_blank"
                   rel="noreferrer"
                   className="btn btn-outline-cream w-100 text-uppercase small fw-semibold d-flex align-items-center justify-content-center gap-2 py-3"

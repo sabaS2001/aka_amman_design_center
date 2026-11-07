@@ -1,8 +1,76 @@
+import { useState, type FormEvent } from "react";
 import { USALProvider } from "@usal/react";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
+import Modal, { type ModalStatus } from "../../components/modal/modal";
+
+const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:4000";
+
+const emptyErrors = { name: false, email: false, message: false };
 
 function Contact() {
+  const [modalStatus, setModalStatus] = useState<ModalStatus | null>(null);
+  const [modalMessage, setModalMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState(emptyErrors);
+
+  function clearError(field: keyof typeof emptyErrors) {
+    setFieldErrors((prev) => (prev[field] ? { ...prev, [field]: false } : prev));
+  }
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const nameInput = form.elements.namedItem("name") as HTMLInputElement;
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
+    const messageInput = form.elements.namedItem("message") as HTMLTextAreaElement;
+
+    const errors = {
+      name: !nameInput.validity.valid,
+      email: !emailInput.validity.valid,
+      message: !messageInput.validity.valid,
+    };
+    setFieldErrors(errors);
+
+    if (errors.name || errors.email || errors.message) {
+      setModalStatus("error");
+      setModalMessage("Please fill in your name, email, and message before sending.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const res = await fetch(`${API_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: nameInput.value,
+          email: emailInput.value,
+          message: messageInput.value,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Could not send your message.");
+      }
+
+      setModalStatus("success");
+      setModalMessage(
+        "Thank you for reaching out. Our team will get back to you shortly."
+      );
+      form.reset();
+      setFieldErrors(emptyErrors);
+    } catch (err) {
+      setModalStatus("error");
+      setModalMessage(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <USALProvider>
     <div className="d-flex flex-column min-vh-100 bg-body">
@@ -42,32 +110,62 @@ function Contact() {
             <div className="card bg-body-secondary border-0 p-4 h-100">
               <h2 className="eyebrow text-white">Send a Message</h2>
 
-              <form className="mt-4">
+              <form className="mt-4" onSubmit={handleSubmit} noValidate>
                 <div className="mb-3">
                   <label className="form-label small text-body-secondary text-uppercase tracking-widest">
                     Name
                   </label>
-                  <input type="text" placeholder="Your Full Name" className="form-control bg-transparent" />
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your Full Name"
+                    className={"form-control bg-transparent" + (fieldErrors.name ? " is-invalid" : "")}
+                    onChange={() => clearError("name")}
+                  />
+                  {fieldErrors.name && (
+                    <div className="invalid-feedback">Please enter your name.</div>
+                  )}
                 </div>
                 <div className="mb-3">
                   <label className="form-label small text-body-secondary text-uppercase tracking-widest">
                     Email
                   </label>
-                  <input type="email" placeholder="example@studio.com" className="form-control bg-transparent" />
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="example@studio.com"
+                    className={"form-control bg-transparent" + (fieldErrors.email ? " is-invalid" : "")}
+                    onChange={() => clearError("email")}
+                  />
+                  {fieldErrors.email && (
+                    <div className="invalid-feedback">Please enter a valid email address.</div>
+                  )}
                 </div>
                 <div className="mb-4">
                   <label className="form-label small text-body-secondary text-uppercase tracking-widest">
                     Message
                   </label>
                   <textarea
+                    name="message"
+                    required
                     rows={3}
                     placeholder="Describe your project vision..."
-                    className="form-control bg-transparent"
+                    className={"form-control bg-transparent" + (fieldErrors.message ? " is-invalid" : "")}
+                    onChange={() => clearError("message")}
                   />
+                  {fieldErrors.message && (
+                    <div className="invalid-feedback">Please enter a message.</div>
+                  )}
                 </div>
 
-                <button type="submit" className="btn btn-primary text-uppercase tracking-widest small fw-semibold">
-                  Send Inquiry &rarr;
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="btn btn-primary text-uppercase tracking-widest small fw-semibold"
+                >
+                  {submitting ? "Sending..." : <>Send Inquiry &rarr;</>}
                 </button>
               </form>
             </div>
@@ -98,7 +196,7 @@ function Contact() {
                 Amman, Jordan
               </p>
               <a
-                href="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan"
+                href="https://www.google.com/maps?cid=1556695017714774737"
                 target="_blank"
                 rel="noreferrer"
                 className="d-inline-block mt-2 small fw-semibold tracking-widest text-primary text-uppercase text-decoration-none"
@@ -190,7 +288,7 @@ function Contact() {
 
       <section id="map" className="position-relative overflow-hidden border-bottom" style={{ height: "22rem" }}>
         <iframe
-          src="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan&z=15&output=embed"
+          src="https://www.google.com/maps?cid=1556695017714774737&output=embed"
           title="AKA Design Center location map"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -222,6 +320,14 @@ function Contact() {
       </main>
 
       <Footer />
+
+      <Modal
+        open={modalStatus !== null}
+        status={modalStatus ?? "success"}
+        title={modalStatus === "error" ? "Message Not Sent" : "Message Sent"}
+        message={modalMessage}
+        onClose={() => setModalStatus(null)}
+      />
     </div>
     </USALProvider>
   );

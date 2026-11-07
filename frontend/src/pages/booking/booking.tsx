@@ -86,7 +86,7 @@ function Booking() {
               </p>
               <p className="mb-0 small text-body-secondary">Amman, Jordan</p>
               <a
-                href="https://maps.google.com/maps?q=Abu%20Bakr%20Al-Sideeq%20St.%20172%2C%20Amman%2C%20Jordan"
+                href="https://www.google.com/maps?cid=1556695017714774737"
                 target="_blank"
                 rel="noreferrer"
                 className="d-inline-block mt-1 small fw-semibold tracking-widest text-primary text-uppercase text-decoration-none"
